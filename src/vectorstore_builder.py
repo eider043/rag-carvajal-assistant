@@ -11,7 +11,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 
 os.makedirs("../vectorstore", exist_ok=True)
 
-EMBEDDING_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 def build_vectorstore():
     print("Cargando base de conocimiento...")

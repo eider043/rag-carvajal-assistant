@@ -9,7 +9,7 @@ import requests
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
 
-EMBEDDING_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 GROQ_MODEL = "llama-3.1-8b-instant"
 
 PROMPT_TEMPLATE = """Eres un asistente experto en la Organizacion Carvajal S.A.
