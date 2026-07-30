@@ -22,7 +22,7 @@ v
 Chunking (RecursiveCharacterTextSplitter, 500 chars)
 |
 v
-Embeddings (paraphrase-multilingual-MiniLM-L12-v2)
+Embeddings (all-MiniLM-L6-v2)
 |
 v
 Vectorstore FAISS (busqueda por similitud)
@@ -42,7 +42,7 @@ Respuesta en espanol con fuentes citadas
 | Componente | Tecnologia |
 |---|---|
 | LLM | llama-3.1-8b-instant (gratis via Groq API) |
-| Embeddings | paraphrase-multilingual-MiniLM-L12-v2 |
+| Embeddings | all-MiniLM-L6-v2 |
 | Vectorstore | FAISS |
 | Framework RAG | LangChain |
 | Interfaz | Streamlit |
