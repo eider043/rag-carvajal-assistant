@@ -1,10 +1,10 @@
-# RAG Carvajal Assistant — IA Generativa con LangChain y HuggingFace
+# RAG Carvajal Assistant — IA Generativa con LangChain y Groq
 
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
 ![Status](https://img.shields.io/badge/Status-Completado-green)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 ![AI](https://img.shields.io/badge/AI-RAG-red)
-![LLM](https://img.shields.io/badge/LLM-Mistral--7B-orange)
+![LLM](https://img.shields.io/badge/LLM-Llama--3.1-orange)
 ![Dashboard](https://img.shields.io/badge/Dashboard-Streamlit-red)
 
 ## Descripcion
@@ -31,7 +31,7 @@ v
 Recuperacion Top-4 chunks relevantes
 |
 v
-LLM Mistral-7B-Instruct (HuggingFace Inference API)
+LLM Llama-3.1-8b-instant (Groq API gratuita)
 |
 v
 Respuesta en espanol con fuentes citadas
@@ -41,7 +41,7 @@ Respuesta en espanol con fuentes citadas
 
 | Componente | Tecnologia |
 |---|---|
-| LLM | Mistral-7B-Instruct-v0.2 (gratis via HuggingFace) |
+| LLM | llama-3.1-8b-instant (gratis via Groq API) |
 | Embeddings | paraphrase-multilingual-MiniLM-L12-v2 |
 | Vectorstore | FAISS |
 | Framework RAG | LangChain |
@@ -72,8 +72,11 @@ python main.py
 streamlit run dashboard.py
 ```
 
-Necesitas un token gratuito de HuggingFace:
-https://huggingface.co/settings/tokens
+Necesitas un token gratuito de Groq:
+https://console.groq.com
+
+Para deploy en Streamlit Cloud, agrega en Settings -> Secrets:
+GROQ_TOKEN = "gsk_tu_token_aqui"
 
 ## Estructura
 
@@ -94,6 +97,11 @@ rag-carvajal-assistant/
 └── outputs/
 ```
 
+## Streamlitt
+
+Link: 
+
+
 ## Autor
-**Eider** — Cientifico de Datos 
+**Eider** — Cientifico de Datos y Estadistico  
 [![Fiverr](https://img.shields.io/badge/Fiverr-Contrátame-1DBF73?logo=fiverr)](https://www.fiverr.com/eiderdatadriven)

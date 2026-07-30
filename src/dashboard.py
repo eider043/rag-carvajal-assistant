@@ -23,32 +23,18 @@ st.set_page_config(
 # Rojo Carvajal: #E3000F | Negro: #1A1A1A | Gris: #F5F5F5
 st.markdown("""
 <style>
-    /* Fondo principal */
-    .main { background-color: #F5F5F5; }
-    .stApp { background-color: #F5F5F5; }
+    .main { background-color: #FFFFFF; }
+    .stApp { background-color: #FFFFFF; }
 
-    /* Header corporativo */
     .carvajal-header {
         background: linear-gradient(135deg, #1A1A1A 0%, #E3000F 100%);
         padding: 25px 30px;
         border-radius: 10px;
         margin-bottom: 20px;
-        color: white;
     }
-    .carvajal-header h1 {
-        color: white !important;
-        font-size: 2rem;
-        font-weight: 800;
-        margin: 0;
-        letter-spacing: 1px;
-    }
-    .carvajal-header p {
-        color: rgba(255,255,255,0.85);
-        margin: 5px 0 0 0;
-        font-size: 0.95rem;
-    }
+    .carvajal-header h1 { color: white !important; font-size: 2rem; font-weight: 800; margin: 0; }
+    .carvajal-header p { color: rgba(255,255,255,0.85); margin: 5px 0 0 0; font-size: 0.95rem; }
 
-    /* Mensajes del chat */
     .user-message {
         background-color: #E3000F;
         color: white;
@@ -82,56 +68,59 @@ st.markdown("""
         display: inline-block;
     }
     .chat-container {
-        background: white;
+        background: #FAFAFA;
         border-radius: 10px;
         padding: 20px;
         min-height: 400px;
         max-height: 500px;
         overflow-y: auto;
-        border: 1px solid #ddd;
+        border: 2px solid #E3000F;
         margin-bottom: 15px;
     }
     .info-card {
-        background: white;
+        background: #FAFAFA;
         border-left: 4px solid #E3000F;
         padding: 15px;
         border-radius: 5px;
         margin-bottom: 10px;
+        color: #1A1A1A;
     }
+    .info-card b { color: #E3000F; }
     .metric-card {
         background: white;
         border-radius: 8px;
         padding: 15px;
         text-align: center;
         border-top: 3px solid #E3000F;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        color: #1A1A1A;
     }
-    /* Sidebar */
-    .css-1d391kg { background-color: #1A1A1A; }
-    [data-testid="stSidebar"] {
-        background-color: #1A1A1A;
-    }
+    [data-testid="stSidebar"] { background-color: #1A1A1A; }
     [data-testid="stSidebar"] * { color: white !important; }
 
-    /* Botones */
+    .stApp h3 { color: #1A1A1A !important; }
+    .stApp h4 { color: #1A1A1A !important; }
+    .stApp p { color: #1A1A1A !important; }
+    .stApp label { color: #1A1A1A !important; }
+    .stMarkdown { color: #1A1A1A !important; }
+
     .stButton > button {
         background-color: #E3000F;
-        color: white;
+        color: white !important;
         border: none;
         border-radius: 5px;
         font-weight: bold;
         width: 100%;
     }
-    .stButton > button:hover {
-        background-color: #B0000B;
-        color: white;
-    }
+    .stButton > button:hover { background-color: #B0000B; color: white !important; }
+
     div[class*="stTextInput"] input {
         border: 2px solid #E3000F;
         border-radius: 5px;
+        color: #1A1A1A;
+        background-color: white;
     }
     .clearfix::after { content: ""; display: table; clear: both; }
-</style>
 """, unsafe_allow_html=True)
 
 
