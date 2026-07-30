@@ -8,6 +8,11 @@ import os
 import sys
 import streamlit as st
 
+@st.cache_resource
+def get_rag_chain(token, path):
+    from rag_engine import build_rag_chain
+    return build_rag_chain(token, path)
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(BASE_DIR, "src"))
 
@@ -214,17 +219,14 @@ if "rag_chain" not in st.session_state:
 # ── Inicializar RAG ──────────────────────────────────────────────────
 vectorstore_path = os.path.join(BASE_DIR, "vectorstore", "carvajal_faiss")
 
+
 if groq_token and st.session_state.rag_chain is None:
     if os.path.exists(vectorstore_path):
-        with st.spinner("Cargando el asistente..."):
-            try:
-                from rag_engine import build_rag_chain
-                st.session_state.rag_chain = build_rag_chain(
-                    groq_token, vectorstore_path
-                )
-                st.success("Asistente listo. Puedes comenzar a preguntar.")
-            except Exception as e:
-                st.error(f"Error al cargar el modelo: {e}")
+        try:
+            st.session_state.rag_chain = get_rag_chain(groq_token, vectorstore_path)
+            st.success("Asistente listo. Puedes comenzar a preguntar.")
+        except Exception as e:
+            st.error(f"Error: {e}")
     else:
         st.warning("Vectorstore no encontrado. Ejecuta primero: python main.py")
 
