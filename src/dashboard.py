@@ -100,15 +100,21 @@ st.markdown("""
         box-shadow: 0 2px 4px rgba(0,0,0,0.15);
         color: #1A1A1A;
     }
-    [data-testid="stSidebar"] { background-color: #1A1A1A; }
-    [data-testid="stSidebar"] * { color: white !important; }
-    [data-testid="stSidebar"] h2 { color: #E3000F !important; font-weight: bold; }
-    [data-testid="stSidebar"] h3 { color: #E3000F !important; }
-    [data-testid="stSidebar"] p { color: #CCCCCC !important; }
-    [data-testid="stSidebar"] li { color: #CCCCCC !important; }
-    [data-testid="stSidebar"] small { color: #999999 !important; }
-    [data-testid="stSidebar"] hr { border-color: #E3000F !important; opacity: 0.4; }
+    
+    [data-testid="stSidebar"] { background-color: #1A1A1A !important; }
+    [data-testid="stSidebar"] * { color: #FFFFFF !important; }
+    [data-testid="stSidebar"] h2, 
+    [data-testid="stSidebar"] h3,
+    [data-testid="stSidebar"] strong,
+    [data-testid="stSidebar"] b { color: #E3000F !important; }
+    [data-testid="stSidebar"] .stMarkdown p { color: #CCCCCC !important; }
+    [data-testid="stSidebar"] .stMarkdown li { color: #CCCCCC !important; }
+    [data-testid="stSidebar"] caption,
+    [data-testid="stSidebar"] small,
+    [data-testid="stSidebar"] .stCaption { color: #999999 !important; }
+    [data-testid="stSidebar"] hr { border-color: #E3000F !important; }
     [data-testid="stSidebar"] a { color: #E3000F !important; }
+    [data-testid="stSidebar"] .stMarkdown h3 { color: #E3000F !important; }
 
     .stApp h3 { color: #1A1A1A !important; }
     .stApp h4 { color: #1A1A1A !important; }
