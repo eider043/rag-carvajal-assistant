@@ -9,9 +9,9 @@ import sys
 import streamlit as st
 
 @st.cache_resource
-def get_rag_chain(token, path):
+def get_rag_chain(groq_token, path, hf_token):
     from rag_engine import build_rag_chain
-    return build_rag_chain(token, path)
+    return build_rag_chain(groq_token, path, hf_token)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(BASE_DIR, "src"))
@@ -135,6 +135,7 @@ with st.sidebar:
     st.markdown("---")
 
     groq_token = st.secrets["GROQ_TOKEN"]
+    hf_token = st.secrets["HF_TOKEN"]
 
     st.markdown("---")
     st.markdown("### Modelo LLM")
@@ -219,11 +220,10 @@ if "rag_chain" not in st.session_state:
 # ── Inicializar RAG ──────────────────────────────────────────────────
 vectorstore_path = os.path.join(BASE_DIR, "vectorstore", "carvajal_faiss")
 
-
 if groq_token and st.session_state.rag_chain is None:
     if os.path.exists(vectorstore_path):
         try:
-            st.session_state.rag_chain = get_rag_chain(groq_token, vectorstore_path)
+            st.session_state.rag_chain = get_rag_chain(groq_token, vectorstore_path, hf_token)
             st.success("Asistente listo. Puedes comenzar a preguntar.")
         except Exception as e:
             st.error(f"Error: {e}")

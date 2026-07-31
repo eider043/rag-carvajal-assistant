@@ -8,6 +8,7 @@ import os
 import requests
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 GROQ_MODEL = "llama-3.1-8b-instant"
@@ -43,17 +44,15 @@ def call_llm(prompt_text, groq_token):
         raise ValueError(f"Error Groq API: {result}")
     return result["choices"][0]["message"]["content"]
 
-def load_vectorstore(vectorstore_path="../vectorstore/carvajal_faiss"):
-    embeddings = HuggingFaceEmbeddings(
-        model_name=EMBEDDING_MODEL,
-        model_kwargs={"device": "cpu"},
-        encode_kwargs={"normalize_embeddings": True}
+def load_vectorstore(vectorstore_path, hf_token="HF_TOKEN"):
+    embeddings = HuggingFaceInferenceAPIEmbeddings(
+        api_key=hf_token,
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
     vectorstore = FAISS.load_local(
         vectorstore_path, embeddings,
         allow_dangerous_deserialization=True
     )
-    print("Vectorstore cargado")
     return vectorstore
 
 def build_rag_chain(groq_token, vectorstore_path="../vectorstore/carvajal_faiss"):

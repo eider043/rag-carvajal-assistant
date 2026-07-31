@@ -8,6 +8,7 @@ import os
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 
 os.makedirs("../vectorstore", exist_ok=True)
 
@@ -36,10 +37,9 @@ def build_vectorstore():
     print(f"Total chunks: {len(chunks)}")
     print("Generando embeddings (puede tardar unos minutos)...")
 
-    embeddings = HuggingFaceEmbeddings(
-        model_name=EMBEDDING_MODEL,
-        model_kwargs={"device": "cpu"},
-        encode_kwargs={"normalize_embeddings": True}
+    embeddings = HuggingFaceInferenceAPIEmbeddings(
+        api_key="HF_TOKEN",
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
 
     vectorstore = FAISS.from_texts(chunks, embeddings, metadatas=metadatas)
