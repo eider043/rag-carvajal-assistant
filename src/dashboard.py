@@ -102,6 +102,13 @@ st.markdown("""
     }
     [data-testid="stSidebar"] { background-color: #1A1A1A; }
     [data-testid="stSidebar"] * { color: white !important; }
+    [data-testid="stSidebar"] h2 { color: #E3000F !important; font-weight: bold; }
+    [data-testid="stSidebar"] h3 { color: #E3000F !important; }
+    [data-testid="stSidebar"] p { color: #CCCCCC !important; }
+    [data-testid="stSidebar"] li { color: #CCCCCC !important; }
+    [data-testid="stSidebar"] small { color: #999999 !important; }
+    [data-testid="stSidebar"] hr { border-color: #E3000F !important; opacity: 0.4; }
+    [data-testid="stSidebar"] a { color: #E3000F !important; }
 
     .stApp h3 { color: #1A1A1A !important; }
     .stApp h4 { color: #1A1A1A !important; }
