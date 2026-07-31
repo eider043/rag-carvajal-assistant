@@ -55,7 +55,7 @@ def load_vectorstore(vectorstore_path, hf_token="HF_TOKEN"):
     )
     return vectorstore
 
-def build_rag_chain(groq_token, vectorstore_path="../vectorstore/carvajal_faiss"):
+def build_rag_chain(groq_token, vectorstore_path="../vectorstore/carvajal_faiss", hf_token=None):
     vectorstore = load_vectorstore(vectorstore_path)
     retriever = vectorstore.as_retriever(
         search_type="similarity",
