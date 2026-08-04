@@ -44,10 +44,11 @@ def call_llm(prompt_text, groq_token):
         raise ValueError(f"Error Groq API: {result}")
     return result["choices"][0]["message"]["content"]
 
-def load_vectorstore(vectorstore_path, hf_token="HF_TOKEN"):
-    embeddings = HuggingFaceInferenceAPIEmbeddings(
-        api_key=hf_token,
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
+def load_vectorstore(vectorstore_path, hf_token=None):
+    embeddings = HuggingFaceEmbeddings(
+        model_name="all-MiniLM-L6-v2",
+        model_kwargs={"device": "cpu"},
+        encode_kwargs={"normalize_embeddings": True}
     )
     vectorstore = FAISS.load_local(
         vectorstore_path, embeddings,

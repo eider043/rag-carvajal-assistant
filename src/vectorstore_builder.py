@@ -37,10 +37,11 @@ def build_vectorstore():
     print(f"Total chunks: {len(chunks)}")
     print("Generando embeddings (puede tardar unos minutos)...")
 
-    embeddings = HuggingFaceInferenceAPIEmbeddings(
-        api_key="HF_TOKEN",
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
-    )
+    embeddings = HuggingFaceEmbeddings(
+        model_name="all-MiniLM-L6-v2",
+        model_kwargs={"device": "cpu"},
+        encode_kwargs={"normalize_embeddings": True}
+)
 
     vectorstore = FAISS.from_texts(chunks, embeddings, metadatas=metadatas)
     vectorstore.save_local("../vectorstore/carvajal_faiss")
